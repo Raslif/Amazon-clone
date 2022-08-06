@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector, shallowEqual } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -12,7 +13,6 @@ function Header() {
     shallowEqual
   );
 
-  console.log(basketReducer.basket);
   return (
     <div className="header">
       <HeaderLogo />
@@ -33,12 +33,14 @@ function Header() {
           <span className="header__optionLineTwo">& Orders</span>
         </div>
 
-        <div className="header__option__basket">
-          <span className="header__optionLineOne__cartitems__count">
-            {basketReducer.basket.length}
-          </span>
-          <ShoppingCartIcon />
-        </div>
+        <Link to="/checkout">
+          <div className="header__option__basket">
+            <span className="header__optionLineOne__cartitems__count">
+              {basketReducer.basket?.length}
+            </span>
+            <ShoppingCartIcon />
+          </div>
+        </Link>
 
         <div className="header__option__basket">
           <span className="header__cart__text">Cart</span>
