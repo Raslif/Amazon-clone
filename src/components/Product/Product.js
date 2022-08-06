@@ -1,7 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import "./Product.css";
+import addItemToBasket from "../../../src/Redux/basket/basketAction";
 
 function Product({ id, title, image, price, rating }) {
+  const dispatch = useDispatch();
+
+  const addToBasket = () => {
+    dispatch(addItemToBasket({ id, title, image, price, rating }));
+  };
+
   return (
     <div className="product">
       <div className="product__info">
@@ -14,14 +23,14 @@ function Product({ id, title, image, price, rating }) {
           {Array(+rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p key={i}>🌟</p>
             ))}
         </div>
       </div>
 
       <img src={image} alt="" />
 
-      <button>Add to Basket</button>
+      <button onClick={addToBasket}>Add to Basket</button>
     </div>
   );
 }

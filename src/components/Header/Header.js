@@ -1,10 +1,18 @@
 import React from "react";
-import "./Header.css";
-import HeaderLogo from "./HeaderLogo";
+import { useSelector, shallowEqual } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
+import "./Header.css";
+import HeaderLogo from "./HeaderLogo";
+
 function Header() {
+  const basketReducer = useSelector(
+    (state) => state.basketReducer,
+    shallowEqual
+  );
+
+  console.log(basketReducer.basket);
   return (
     <div className="header">
       <HeaderLogo />
@@ -26,7 +34,9 @@ function Header() {
         </div>
 
         <div className="header__option__basket">
-          <span className="header__optionLineOne__cartitems__count">0</span>
+          <span className="header__optionLineOne__cartitems__count">
+            {basketReducer.basket.length}
+          </span>
           <ShoppingCartIcon />
         </div>
 
