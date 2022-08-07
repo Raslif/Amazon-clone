@@ -8,10 +8,7 @@ import "./Header.css";
 import HeaderLogo from "./HeaderLogo";
 
 function Header() {
-  const basketReducer = useSelector(
-    (state) => state.basketReducer,
-    shallowEqual
-  );
+  const listOfBasketItems = useSelector((state) => state.basket, shallowEqual);
 
   return (
     <div className="header">
@@ -36,7 +33,7 @@ function Header() {
         <Link to="/checkout">
           <div className="header__option__basket">
             <span className="header__optionLineOne__cartitems__count">
-              {basketReducer.basket?.length}
+              {listOfBasketItems?.length}
             </span>
             <ShoppingCartIcon />
           </div>

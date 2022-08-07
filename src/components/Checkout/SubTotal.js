@@ -5,13 +5,10 @@ import CurrencyFormat from "react-currency-format";
 import "./SubTotal.css";
 
 function SubTotal() {
-  const basketReducer = useSelector(
-    (state) => state.basketReducer,
-    shallowEqual
-  );
+  const listOfBasketItems = useSelector((state) => state.basket, shallowEqual);
 
   let totalAmount = 0;
-  basketReducer.basket?.forEach((item) => {
+  listOfBasketItems?.forEach((item) => {
     totalAmount += item.price;
   });
 
@@ -21,7 +18,7 @@ function SubTotal() {
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({basketReducer.basket?.length} items):{" "}
+              Subtotal ({listOfBasketItems?.length} items):{" "}
               <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
