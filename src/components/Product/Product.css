@@ -30,6 +30,7 @@
     border-color: #a88734 #9c7e31 #846a29;
     color       : #111;
     padding     : 3px;
+    cursor      : pointer;
 }
 
 .product__price {
