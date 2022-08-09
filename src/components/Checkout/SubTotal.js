@@ -22,7 +22,7 @@ function SubTotal() {
               <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
-              <input type="checkbox" /> This order contains a gift
+              <input type="checkbox" /> <span>This order contains a gift</span>
             </small>
           </>
         )}

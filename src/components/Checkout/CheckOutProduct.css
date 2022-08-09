@@ -1,18 +1,22 @@
 .checkout__product__item {
-    display: flex;
+    display      : flex;
+    margin-top   : 20px;
+    margin-bottom: 20px;
 }
 
 .checkout__product__image {
-    width     : 150px;
-    height    : 230px;
-    padding   : 12px;
+    width     : 180px;
+    height    : 180px;
     object-fit: contain;
 }
 
 .checkout__product__info {
-    margin-left: 10px;
-    padding    : 10px;
-    font-weight: bold;
+    padding-left: 10px;
+}
+
+.checkout__product__title {
+    font-size  : 17px;
+    font-weight: 700;
 }
 
 .checkout__product__rating {

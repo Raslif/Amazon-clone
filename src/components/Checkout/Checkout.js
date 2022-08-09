@@ -16,21 +16,33 @@ function Checkout() {
           src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
           alt="Advertisement"
         />
-        <h2 className="checkout__title">Your shopping basket here</h2>
-        <div className="checkout__product">
-          {listOfBasketItems &&
-            listOfBasketItems?.length > 0 &&
-            listOfBasketItems.map((item, index) => (
-              <CheckOutProduct
-                key={index}
-                id={item.id}
-                title={item.title}
-                image={item.image}
-                price={item.price}
-                rating={item.rating}
-              />
-            ))}
-        </div>
+        {listOfBasketItems?.length <= 0 ? (
+          <div className="checkout__empty">
+            <p>Your shopping basket is empty</p>
+            <small>
+              You have no items in your basket. To buy items, Click the "Add to
+              Basket" next to the item.
+            </small>
+          </div>
+        ) : (
+          <div>
+            <h2 className="checkout__title">Your shopping basket here</h2>
+            <div className="checkout__product">
+              {listOfBasketItems &&
+                listOfBasketItems?.length > 0 &&
+                listOfBasketItems.map((item, index) => (
+                  <CheckOutProduct
+                    key={index}
+                    id={item.id}
+                    title={item.title}
+                    image={item.image}
+                    price={item.price}
+                    rating={item.rating}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="checkout__right">

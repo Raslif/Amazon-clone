@@ -1,16 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import "./CheckOutProduct.css";
+import { removeItemFromBasket } from "../../../src/Redux/basket/basketAction";
 
 function CheckOutProduct({ id, title, image, price, rating }) {
-  //   const removeFromBasket = (id) => {
-  //     console.log(id);
-  //   };
+  const dispatch = useDispatch();
+
+  const removeFromBasket = () => {
+    dispatch(removeItemFromBasket(id));
+  };
 
   return (
     <div className="checkout__product__item">
-      <img className="checkout__product__image" src={image} />
+      <div>
+        <img className="checkout__product__image" src={image} />
+      </div>
       <div className="checkout__product__info">
-        <p>{title}</p>
+        <p className="checkout__product__title">{title}</p>
         <p className="checkout__product__price">
           <small>$</small>
           <strong>{price}</strong>
@@ -24,7 +31,7 @@ function CheckOutProduct({ id, title, image, price, rating }) {
         </div>
 
         <div className="checkout__product__remove__basket">
-          <button>Remove from basket</button>
+          <button onClick={removeFromBasket}>Remove from basket</button>
         </div>
       </div>
     </div>

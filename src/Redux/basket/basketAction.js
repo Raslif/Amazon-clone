@@ -1,4 +1,4 @@
-import ADD_ITEM_TO_BASKET from "./basketTypes";
+import { ADD_ITEM_TO_BASKET, REMOVE_ITEM_FROM_BASKET } from "./basketTypes";
 
 const addItemToBasket = (item) => {
   return {
@@ -13,4 +13,11 @@ const addItemToBasket = (item) => {
   };
 };
 
-export default addItemToBasket;
+const removeItemFromBasket = (id) => {
+  return {
+    type: REMOVE_ITEM_FROM_BASKET,
+    payload: id,
+  };
+};
+
+export { addItemToBasket, removeItemFromBasket };

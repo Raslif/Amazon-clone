@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import "./Product.css";
-import addItemToBasket from "../../../src/Redux/basket/basketAction";
+import { addItemToBasket } from "../../../src/Redux/basket/basketAction";
 
 function Product({ id, title, image, price, rating }) {
   const dispatch = useDispatch();
