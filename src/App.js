@@ -5,6 +5,7 @@ import Checkout from "./components/Checkout/Checkout";
 import PageNotFound from "./components/Error/PageNotFound";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
