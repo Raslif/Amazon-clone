@@ -28,7 +28,8 @@
     border-radius   : 5px;
     border          : 1px solid lightgray;
     padding         : 20px;
-    width           : 500px;
+    width           : 350px;
+    height          : fit-content;
 }
 
 .login__form>h1 {
