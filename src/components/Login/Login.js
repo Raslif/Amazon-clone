@@ -11,10 +11,8 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    // add proper validation rules before the authentication
-
+    // add proper validation rules before the firebase call
+    // we will be adding these later
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
@@ -27,7 +25,8 @@ function Login() {
 
   const onRegsiter = (e) => {
     e.preventDefault();
-
+    // add proper validation rules before the firebase call
+    // we will be adding these later
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {

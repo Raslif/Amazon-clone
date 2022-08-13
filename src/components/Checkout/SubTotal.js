@@ -5,7 +5,10 @@ import CurrencyFormat from "react-currency-format";
 import "./SubTotal.css";
 
 function SubTotal() {
-  const listOfBasketItems = useSelector((state) => state.basket, shallowEqual);
+  const listOfBasketItems = useSelector(
+    (state) => state.basketReducer.basket,
+    shallowEqual
+  );
 
   let totalAmount = 0;
   listOfBasketItems?.forEach((item) => {

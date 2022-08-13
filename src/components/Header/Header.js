@@ -6,9 +6,18 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import "./Header.css";
 import HeaderLogo from "./HeaderLogo";
+import { auth } from "../../firebase";
 
 function Header() {
-  const listOfBasketItems = useSelector((state) => state.basket, shallowEqual);
+  const listOfBasketItems = useSelector(
+    (state) => state.basketReducer.basket,
+    shallowEqual
+  );
+  const user = useSelector((state) => state.userReducer.user, shallowEqual);
+
+  const handleAuthentication = () => {
+    auth.signOut();
+  };
 
   return (
     <div className="header">
@@ -20,10 +29,16 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello, Sign In</span>
-          <span className="header__optionLineTwo">Accounts & Lists</span>
-        </div>
+        <Link to={!user && "/login"}>
+          <div className="header__option" onClick={handleAuthentication}>
+            <span className="header__optionLineOne">
+              Hello, {user ? user.username : "Guest"}
+            </span>
+            <span className="header__optionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
+          </div>
+        </Link>
 
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>

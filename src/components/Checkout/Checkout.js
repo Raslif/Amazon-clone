@@ -6,7 +6,10 @@ import CheckOutProduct from "./CheckOutProduct";
 import SubTotal from "./SubTotal";
 
 function Checkout() {
-  const listOfBasketItems = useSelector((state) => state.basket, shallowEqual);
+  const listOfBasketItems = useSelector(
+    (state) => state.basketReducer.basket,
+    shallowEqual
+  );
 
   return (
     <div className="checkout">
