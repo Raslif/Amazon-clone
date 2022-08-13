@@ -19,6 +19,17 @@ function Header() {
     auth.signOut();
   };
 
+  let userSignOutSignInOptions = (
+    <>
+      <span className="header__optionLineOne">
+        Hello, {user ? user.username : "Guest"}
+      </span>
+      <span className="header__optionLineTwo">
+        {user ? "Sign Out" : "Sign In"}
+      </span>
+    </>
+  );
+
   return (
     <div className="header">
       <HeaderLogo />
@@ -31,12 +42,7 @@ function Header() {
       <div className="header__nav">
         <Link to={!user && "/login"}>
           <div className="header__option" onClick={handleAuthentication}>
-            <span className="header__optionLineOne">
-              Hello, {user ? user.username : "Guest"}
-            </span>
-            <span className="header__optionLineTwo">
-              {user ? "Sign Out" : "Sign In"}
-            </span>
+            {userSignOutSignInOptions}
           </div>
         </Link>
 

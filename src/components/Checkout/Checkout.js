@@ -11,6 +11,8 @@ function Checkout() {
     shallowEqual
   );
 
+  const user = useSelector((state) => state.userReducer.user, shallowEqual);
+
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -21,6 +23,9 @@ function Checkout() {
         />
         {listOfBasketItems?.length <= 0 ? (
           <div className="checkout__empty">
+            <p>
+              Hello, <i>{user ? user.username : "Guest"}</i>
+            </p>
             <p>Your shopping basket is empty</p>
             <small>
               You have no items in your basket. To buy items, Click the "Add to
@@ -29,7 +34,10 @@ function Checkout() {
           </div>
         ) : (
           <div>
-            <h2 className="checkout__title">Your shopping basket here</h2>
+            <h2 className="checkout__title">
+              Hello, <i>{user ? user.username : "Guest"}</i>. Your shopping
+              basket here
+            </h2>
             <div className="checkout__product">
               {listOfBasketItems &&
                 listOfBasketItems?.length > 0 &&
