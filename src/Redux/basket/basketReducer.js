@@ -14,7 +14,7 @@ const basketReducer = (state = initialState, action) => {
 
     case REMOVE_ITEM_FROM_BASKET:
       let newBasket = [...state.basket];
-      let index = state.basket.findIndex((item) => item.id == action.payload);
+      let index = state.basket.findIndex((item) => item.id === action.payload);
       if (index >= 0) {
         newBasket.splice(index, 1);
       } else {
