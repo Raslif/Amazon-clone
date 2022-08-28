@@ -53,6 +53,11 @@
     font-size : 12px;
 }
 
+.error__message {
+    color    : red;
+    font-size: 12px;
+}
+
 .login__signin__button {
     background   : #f0c14b;
     border-radius: 2px;

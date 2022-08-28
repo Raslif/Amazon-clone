@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
+import FlipMove from "react-flip-move";
 
 import "./Checkout.css";
 import CheckOutProduct from "./CheckOutProduct";
@@ -39,18 +40,20 @@ function Checkout() {
               basket here
             </h2>
             <div className="checkout__product">
-              {listOfBasketItems &&
-                listOfBasketItems?.length > 0 &&
-                listOfBasketItems.map((item, index) => (
-                  <CheckOutProduct
-                    key={index}
-                    id={item.id}
-                    title={item.title}
-                    image={item.image}
-                    price={item.price}
-                    rating={item.rating}
-                  />
-                ))}
+              <FlipMove enterAnimation="fade" leaveAnimation="fade">
+                {listOfBasketItems &&
+                  listOfBasketItems?.length > 0 &&
+                  listOfBasketItems.map((item, index) => (
+                    <CheckOutProduct
+                      key={index}
+                      id={item.id}
+                      title={item.title}
+                      image={item.image}
+                      price={item.price}
+                      rating={item.rating}
+                    />
+                  ))}
+              </FlipMove>
             </div>
           </div>
         )}
