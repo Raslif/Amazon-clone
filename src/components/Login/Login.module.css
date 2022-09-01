@@ -1,3 +1,7 @@
+/* CSS modules concept will add scope to css classes and ids. Through this way, by default, the css classes is not applicable in child componenets 
+CSS modules provide a way to locally scope CSS class names. You don’t have to worry about overriding styles when you use the same class name.
+https://www.makeuseof.com/react-components-css-modules-style/ */
+
 .login {
     background-color: white;
     height          : 100vh;

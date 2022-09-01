@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { auth } from "../../firebase";
 
-import "./Login.css";
+import loginStyles from "./Login.module.css";
 import AMAZON_LOGIN_LOGO from "../../Assets/amazon_login_logo.png";
 
 function Login() {
@@ -33,7 +33,10 @@ function Login() {
   });
 
   const onSubmit = (data) => {
-    setApiCallStart(true);
+    // we will get the previous state value
+    setApiCallStart((previousState) => {
+      return { ...previousState, isApiCallStart: true };
+    });
     let { email, password } = data;
 
     auth
@@ -70,14 +73,14 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <div className={loginStyles.login}>
       <Link to="/">
-        <div className="login__logo">
+        <div className={loginStyles.login__logo}>
           <img src={AMAZON_LOGIN_LOGO} alt="" />
         </div>
       </Link>
 
-      <div className="login__form">
+      <div className={loginStyles.login__form}>
         <h1>Sign-in</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h5>E-mail</h5>
@@ -88,7 +91,7 @@ function Login() {
             autoComplete="email"
           />
           {errors.email && (
-            <p className="error__message">{errors.email.message}</p>
+            <p className={loginStyles.error__message}>{errors.email.message}</p>
           )}
 
           <h5>Password</h5>
@@ -99,12 +102,14 @@ function Login() {
             autoComplete="new-password"
           />
           {errors.password && (
-            <p className="error__message">{errors.password.message}</p>
+            <p className={loginStyles.error__message}>
+              {errors.password.message}
+            </p>
           )}
 
           <button
             type="submit"
-            className="login__signin__button"
+            className={loginStyles.login__signin__button}
             disabled={isApiCallStart}
           >
             Sign In
@@ -116,7 +121,7 @@ function Login() {
         </p>
 
         <button
-          className="login__register__button"
+          className={loginStyles.login__register__button}
           onClick={onRegsiter}
           disabled={isApiCallStart}
         >
