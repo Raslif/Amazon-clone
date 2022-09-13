@@ -1,10 +1,13 @@
 import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import CurrencyFormat from "react-currency-format";
+import { useNavigate } from "react-router-dom";
 
 import "./SubTotal.css";
 
 function SubTotal() {
+  let navigate = useNavigate();
+
   const listOfBasketItems = useSelector(
     (state) => state.basketReducer.basket,
     shallowEqual
@@ -36,7 +39,13 @@ function SubTotal() {
         prefix={"$"}
       />
 
-      <button>Proceed to Checkout</button>
+      <button
+        onClick={(e) => {
+          listOfBasketItems?.length > 0 && navigate("/payment");
+        }}
+      >
+        Proceed to Checkout
+      </button>
     </div>
   );
 }

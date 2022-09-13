@@ -1,0 +1,78 @@
+.payment {
+    width        : 98%;
+    margin       : auto;
+    margin-bottom: 10px;
+}
+
+.payment__header {
+    text-align : center;
+    font-weight: 400;
+    padding    : 10px;
+}
+
+.payment__header>h2>a {
+    text-decoration: none;
+}
+
+.payment__section__container {
+    background-color: white;
+}
+
+.payment__section {
+    display      : flex;
+    margin       : 0 20px;
+    padding      : 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.payment__delivery__address__title,
+.payment__delivery__address,
+.payment__method__title,
+.payment__method__details {
+    font-weight: 500;
+    padding    : 10px;
+}
+
+.payment__section__items__title {
+    font-weight: 500;
+    margin-top : 20px;
+}
+
+.payment__delivery__address__title,
+.payment__section__items__title,
+.payment__method__title {
+    flex: 0.2
+}
+
+.payment__delivery__address,
+.payment__section__items__list,
+.payment__method__details {
+    flex: 0.8;
+}
+
+.payment__method__details {
+    display       : flex;
+    flex-direction: column;
+}
+
+.payment__method__buy_now__section {
+    margin-top      : 10px;
+    width           : 300px;
+    height          : 50px;
+    padding         : 15px 15px 20px 15px;
+    background-color: #f3f3f3;
+    border          : 1px solid #dddddd;
+    border-radius   : 3px;
+}
+
+.payment__method__buy__now__section_order__total>button {
+    background   : #f0c14b;
+    border-radius: 2px;
+    width        : 100%;
+    height       : 25px;
+    border       : 1px solid;
+    margin-top   : 8px;
+    border-color : #a88734 #9c7e31 #846a29;
+    color        : #111;
+    cursor       : pointer;
+}

@@ -10,6 +10,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import { auth } from "./firebase";
 import { userLogIn, userLogOut } from "./Redux/user/userAction";
+import Payment from "./components/Payment/Payment";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
