@@ -12,8 +12,10 @@ function Login() {
     register,
     handleSubmit,
     getValues,
+    trigger,
     formState: { errors },
   } = useForm({ mode: "onChange" });
+
   let navigate = useNavigate();
 
   const emailRegister = register("email", {
@@ -52,8 +54,14 @@ function Login() {
   };
 
   const onRegsiter = async () => {
+    debugger;
     let { email, password } = getValues();
     let isInputValid = !errors.email && !errors.password;
+
+    if (!email || !password) {
+      trigger(["email", "password"]);
+      isInputValid = false;
+    }
 
     if (isInputValid === true) {
       setApiCallStart(true);
